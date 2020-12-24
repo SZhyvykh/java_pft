@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.addressbook.GroupCreationTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-12-24T22:02:05" hostname="DESKTOP-G3MFAMG" time="1.837">
+  <properties/>
+  <testcase name="testUntitledTestCase" classname="ru.stqa.pft.addressbook.GroupCreationTest" time="1.837"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[1608847322523	geckodriver	INFO	Listening on 127.0.0.1:6989
+1608847323131	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\stasz\\AppData\\Local\\Temp\\rust_mozprofile0vCW2D"
+Can't find symbol 'eglSwapBuffersWithDamageEXT'.
+Can't find symbol 'eglSetDamageRegionKHR'.
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1608847325396	Marionette	INFO	Listening on port 62003
+1608847325811	Marionette	WARN	TLS certificate errors will be ignored for this session
+Dec 24, 2020 5:02:05 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+INFO: Detected dialect: W3C
+]]></system-err>
+</testsuite>
