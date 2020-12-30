@@ -4,6 +4,7 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import ru.stqa.pft.addressbook.ContactData;
 import ru.stqa.pft.addressbook.GroupData;
 
 import java.util.concurrent.TimeUnit;
@@ -112,5 +113,35 @@ public class TestBase {
 
     protected void selectGroup() {
       driver.findElement(By.xpath("(//input[@name='selected[]'])[3]")).click();
+    }
+
+    protected void goToHomePage() {
+      driver.findElement(By.linkText("home page")).click();
+    }
+
+    protected void submitNewContact() {
+      driver.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
+    }
+
+    protected void fillContactForm(ContactData contactData) {
+      driver.findElement(By.name("firstname")).click();
+      driver.findElement(By.name("firstname")).clear();
+      driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstName());
+      driver.findElement(By.name("lastname")).click();
+      driver.findElement(By.name("lastname")).clear();
+      driver.findElement(By.name("lastname")).sendKeys(contactData.getLastName());
+      driver.findElement(By.name("company")).click();
+      driver.findElement(By.name("company")).clear();
+      driver.findElement(By.name("company")).sendKeys(contactData.getCompany());
+      driver.findElement(By.name("mobile")).click();
+      driver.findElement(By.name("mobile")).clear();
+      driver.findElement(By.name("mobile")).sendKeys(contactData.getPhone());
+      driver.findElement(By.name("address2")).click();
+      driver.findElement(By.name("address2")).clear();
+      driver.findElement(By.name("address2")).sendKeys(contactData.getAddress());
+    }
+
+    protected void goToAddNewPage() {
+      driver.findElement(By.linkText("add new")).click();
     }
 }
