@@ -1,8 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import ru.stqa.pft.addressbook.model.ContactData;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -17,10 +20,28 @@ public class ApplicationManager {
     private String baseUrl;
     private boolean acceptNextAlert = true;
     private StringBuffer verificationErrors = new StringBuffer();
+    private String browser;
+
+    public ApplicationManager(String browser) {
+
+        this.browser = browser;
+    }
 
     public void init() {
         System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
-        driver = new FirefoxDriver();
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+
+        if(this.browser.equals(BrowserType.FIREFOX)) {
+            driver = new FirefoxDriver();
+        }
+        else if(this.browser.equals(BrowserType.CHROME)) {
+            driver = new ChromeDriver();
+        }
+        else if(this.browser.equals(BrowserType.IE)) {
+            driver = new InternetExplorerDriver();
+        }
+
+
         baseUrl = "http://localhost/group.php";
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         driver.get(baseUrl);
@@ -49,14 +70,7 @@ public class ApplicationManager {
         }
     }
 
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
+
 
     private String closeAlertAndGetItsText() {
         try {
