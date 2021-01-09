@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
 
-public class DeleteGroupCreation extends TestBase {
+public class GroupDeletionTest extends TestBase {
 
 
 
@@ -15,7 +15,7 @@ public class DeleteGroupCreation extends TestBase {
 
     app.getNavigationHelper().goToGroupPage();
     if (! app.getGroupHelper().isThereAGroup()) {
-      app.getGroupHelper().createGroup(new GroupData("test1", null, null));
+      app.getGroupHelper().createGroup(new GroupData("test1", "New Group", "Group footer"));
     }
     app.getGroupHelper().selectGroup();
     app.getGroupHelper().deleteSelectedGroup();
